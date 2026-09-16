@@ -13,6 +13,8 @@ RUN npm install --production
 # For copy application code
 COPY app.js .
 
+COPY public/ ./public/
+
 # Container listens on port 5000 
 EXPOSE 5000
 
