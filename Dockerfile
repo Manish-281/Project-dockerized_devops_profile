@@ -13,7 +13,7 @@ RUN npm install --production
 # For copy application code
 COPY app.js .
 
-# Container listens on port 3000 
+# Container listens on port 5000 
 EXPOSE 3000
 
 # Command which run after Container starting
