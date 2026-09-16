@@ -4,67 +4,31 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-
-// HTML page (home)
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Static files (CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Root - JSON welcome
+// Home → Welcome page
 app.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to DevOps Profile API 🚀',
-        version: '1.0.0',
-        author: 'Manish',
-        endpoints: [
-            '/profile',
-            '/skills',
-            '/health'
-        ]
-    });
+    res.sendFile(path.join(__dirname, 'public', 'welcome.html'));
+});
+
+// Welcome
+app.get('/welcome', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'welcome.html'));
 });
 
 // Profile
 app.get('/profile', (req, res) => {
-    res.json({
-        name: 'Manish',
-        role: 'Cloud/DevOps Engineer',
-        location: 'India',
-        skills: [
-            'AWS',
-            'Docker',
-            'Kubernetes',
-            'Jenkins',
-            'CI/CD',
-            'Linux',
-            'Networking',
-            'Git & GitHub'
-        ]
-    });
+    res.sendFile(path.join(__dirname, 'public', 'profile.html'));
 });
 
 // Skills
 app.get('/skills', (req, res) => {
-    res.json({
-        skills: [
-            { name: 'AWS', level: 'Intermediate' },
-            { name: 'Docker', level: 'Intermediate' },
-            { name: 'Kubernetes', level: 'Beginner' },
-            { name: 'Jenkins', level: 'Beginner' },
-            { name: 'CI/CD', level: 'Intermediate' },
-            { name: 'Linux', level: 'Intermediate' },
-            { name: 'Networking', level: 'Intermediate' },
-            { name: 'Git & GitHub', level: 'Intermediate' }
-        ]
-    });
+    res.sendFile(path.join(__dirname, 'public', 'skills.html'));
 });
 
 // Health
 app.get('/health', (req, res) => {
-    res.json({ status: 'healthy' });
+    res.sendFile(path.join(__dirname, 'public', 'health.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {

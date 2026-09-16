@@ -14,102 +14,24 @@ body {
     justify-content: center;
 }
 
-/* Main Layout - Side by Side */
-.main-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 1400px;
-    width: 100%;
-    align-items: start;
-}
-
-/* Profile Panel (Left) */
-.profile-panel {
+/* ==================== MAIN PAGE ==================== */
+.container {
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 40px 30px;
+    padding: 50px 40px;
+    max-width: 800px;
+    width: 100%;
 }
 
-/* Console Panel (Right) */
-.console-panel {
-    background: #1e1e1e;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 20px;
-}
-
-.console-header {
-    background: #2d2d2d;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #3d3d3d;
-}
-
-.console-dots {
-    display: flex;
-    gap: 8px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-
-#output-title {
-    color: #888;
-    font-size: 0.85em;
-    font-family: 'Courier New', monospace;
-}
-
-.console-panel pre {
-    color: #22c55e;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    padding: 20px;
-    flex: 1;
-    overflow-y: auto;
-    line-height: 1.6;
-}
-
-.close-btn {
-    background: #ef4444;
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.75em;
-}
-
-.close-btn:hover {
-    background: #dc2626;
-}
-
-/* Header */
 .header {
     text-align: center;
     margin-bottom: 25px;
 }
 
 .avatar {
-    font-size: 70px;
-    margin-bottom: 10px;
+    font-size: 80px;
+    margin-bottom: 15px;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -120,28 +42,28 @@ body {
 
 h1 {
     color: #333;
-    font-size: 1.8em;
-    margin-bottom: 5px;
+    font-size: 2em;
+    margin-bottom: 8px;
 }
 
 .subtitle {
     color: #666;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
-/* Skills Badges */
+/* Badges */
 .badges {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
 .badge {
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 20px;
-    font-size: 0.8em;
+    font-size: 0.85em;
     font-weight: 600;
     color: white;
 }
@@ -158,22 +80,21 @@ h1 {
 /* Endpoints */
 .endpoints {
     display: grid;
-    gap: 10px;
-    margin-top: 25px;
+    gap: 12px;
+    margin-top: 30px;
 }
 
 .endpoint {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
+    padding: 18px 20px;
     background: #f8f9fa;
     border-radius: 12px;
     text-decoration: none;
     color: #333;
     transition: all 0.2s;
     border: 2px solid transparent;
-    cursor: pointer;
 }
 
 .endpoint:hover {
@@ -186,17 +107,17 @@ h1 {
 .endpoint-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .method {
     background: #22c55e;
     color: white;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 6px;
-    font-size: 0.7em;
+    font-size: 0.75em;
     font-weight: bold;
-    min-width: 45px;
+    min-width: 50px;
     text-align: center;
 }
 
@@ -204,17 +125,17 @@ h1 {
     font-family: 'Courier New', monospace;
     font-weight: 600;
     color: #667eea;
-    font-size: 0.95em;
+    font-size: 1.05em;
 }
 
 .desc {
     color: #888;
-    font-size: 0.85em;
+    font-size: 0.9em;
 }
 
 .arrow {
     color: #667eea;
-    font-size: 1.1em;
+    font-size: 1.2em;
     transition: transform 0.2s;
 }
 
@@ -222,80 +143,393 @@ h1 {
     transform: translateX(5px);
 }
 
-/* Footer */
 .footer {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 30px;
     color: #999;
-    font-size: 0.8em;
+    font-size: 0.85em;
 }
 
-/* ================================
-   RESPONSIVE DESIGN
-   ================================ */
+/* ==================== PAGE LAYOUT ==================== */
+.page-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
 
-/* Tablet */
-@media (max-width: 1024px) {
-    .main-wrapper {
-        grid-template-columns: 1fr;
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-3px);
+}
+
+.page-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 50px 40px;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ==================== WELCOME PAGE ==================== */
+.welcome-card {
+    text-align: center;
+}
+
+.welcome-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.welcome-card h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+}
+
+.welcome-msg {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-msg strong {
+    color: #667eea;
+}
+
+.welcome-actions {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+/* ==================== PROFILE PAGE ==================== */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-avatar {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+.profile-role {
+    color: #667eea;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.info-icon {
+    font-size: 1.5em;
+    color: #667eea;
+    min-width: 30px;
+}
+
+.info-label {
+    color: #888;
+    font-size: 0.85em;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    color: #333;
+    font-weight: 600;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==================== SKILLS PAGE ==================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.skill-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.skill-name {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.skill-level {
+    color: #888;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+}
+
+.skill-bar {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    border-radius: 10px;
+    animation: fillBar 1s ease;
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+}
+
+/* ==================== HEALTH PAGE ==================== */
+.health-card {
+    text-align: center;
+}
+
+.health-status {
+    margin-bottom: 40px;
+}
+
+.health-status h1 {
+    color: #22c55e;
+    font-size: 1.8em;
+    margin-top: 15px;
+}
+
+.pulse-dot {
+    width: 60px;
+    height: 60px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
     }
-
-    .console-panel {
-        position: static;
-        min-height: 300px;
+    70% {
+        box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
     }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.health-item {
+    padding: 25px 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.health-item i {
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 12px;
+}
+
+.health-label {
+    color: #888;
+    font-size: 0.85em;
+    margin-bottom: 6px;
+}
+
+.health-value {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.health-value.success {
+    color: #22c55e;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 15px;
     }
 
-    .profile-panel {
-        padding: 25px 18px;
+    .container,
+    .page-card {
+        padding: 30px 20px;
     }
 
     h1 {
         font-size: 1.5em;
     }
 
-    .avatar {
-        font-size: 55px;
+    .avatar,
+    .welcome-icon,
+    .profile-avatar {
+        font-size: 60px;
     }
 
-    .badges {
-        gap: 6px;
+    .welcome-card h1 {
+        font-size: 1.8em;
+    }
+
+    .welcome-msg {
+        font-size: 1em;
     }
 
     .badge {
-        padding: 5px 10px;
-        font-size: 0.7em;
+        padding: 6px 12px;
+        font-size: 0.75em;
     }
 
     .endpoint {
-        padding: 12px 14px;
-        flex-wrap: wrap;
-        gap: 8px;
+        padding: 14px 15px;
     }
 
     .desc {
-        width: 100%;
-        margin-left: 57px;
-        font-size: 0.8em;
+        display: none;
     }
 
-    .console-panel {
-        min-height: 250px;
+    .page-title {
+        font-size: 1.5em;
     }
 
-    .console-panel pre {
-        font-size: 0.8em;
-        padding: 15px;
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .skill-card {
+        padding: 18px 12px;
+    }
+
+    .skill-icon {
+        font-size: 2em;
+    }
+
+    .skill-name {
+        font-size: 0.95em;
+    }
+
+    .health-status h1 {
+        font-size: 1.3em;
     }
 }
 
-/* Small Mobile */
 @media (max-width: 400px) {
     .badge {
         font-size: 0.65em;
@@ -304,5 +538,11 @@ h1 {
 
     .path {
         font-size: 0.85em;
+    }
+
+    .method {
+        font-size: 0.65em;
+        padding: 3px 6px;
+        min-width: 40px;
     }
 }

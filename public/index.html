@@ -7,86 +7,69 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-wrapper">
-        <!-- Left Panel: Profile -->
-        <div class="profile-panel">
-            <div class="header">
-                <div class="avatar">👨‍💻</div>
-                <h1>Manish</h1>
-                <p class="subtitle">Cloud/DevOps Engineer</p>
-            </div>
-
-            <!-- Skills Badges -->
-            <div class="badges">
-                <span class="badge aws">AWS</span>
-                <span class="badge docker">Docker</span>
-                <span class="badge k8s">Kubernetes</span>
-                <span class="badge jenkins">Jenkins</span>
-                <span class="badge cicd">CI/CD</span>
-                <span class="badge linux">Linux</span>
-                <span class="badge network">Networking</span>
-                <span class="badge git">Git & GitHub</span>
-            </div>
-
-            <!-- Endpoints -->
-            <div class="endpoints">
-                <div class="endpoint" onclick="fetchData('/')">
-                    <div class="endpoint-left">
-                        <span class="method">GET</span>
-                        <span class="path">/</span>
-                    </div>
-                    <span class="desc">Welcome</span>
-                    <span class="arrow">→</span>
-                </div>
-
-                <div class="endpoint" onclick="fetchData('/profile')">
-                    <div class="endpoint-left">
-                        <span class="method">GET</span>
-                        <span class="path">/profile</span>
-                    </div>
-                    <span class="desc">Profile</span>
-                    <span class="arrow">→</span>
-                </div>
-
-                <div class="endpoint" onclick="fetchData('/skills')">
-                    <div class="endpoint-left">
-                        <span class="method">GET</span>
-                        <span class="path">/skills</span>
-                    </div>
-                    <span class="desc">Skills</span>
-                    <span class="arrow">→</span>
-                </div>
-
-                <div class="endpoint" onclick="fetchData('/health')">
-                    <div class="endpoint-left">
-                        <span class="method">GET</span>
-                        <span class="path">/health</span>
-                    </div>
-                    <span class="desc">Health</span>
-                    <span class="arrow">→</span>
-                </div>
-            </div>
-
-            <div class="footer">
-                Built with ❤️  using Node.js, Express & Docker
-            </div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="avatar">👨‍💻</div>
+            <h1>Manish</h1>
+            <p class="subtitle">Cloud/DevOps Engineer</p>
         </div>
 
-        <!-- Right Panel: Output Console -->
-        <div class="console-panel" id="console-panel">
-            <div class="console-header">
-                <div class="console-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+        <!-- Skills Badges -->
+        <div class="badges">
+            <span class="badge aws">AWS</span>
+            <span class="badge docker">Docker</span>
+            <span class="badge k8s">Kubernetes</span>
+            <span class="badge jenkins">Jenkins</span>
+            <span class="badge cicd">CI/CD</span>
+            <span class="badge linux">Linux</span>
+            <span class="badge network">Networking</span>
+            <span class="badge git">Git & GitHub</span>
+        </div>
+
+        <!-- Endpoints (links) -->
+        <div class="endpoints">
+            <a href="/welcome" class="endpoint">
+                <div class="endpoint-left">
+                    <span class="method">GET</span>
+                    <span class="path">/welcome</span>
                 </div>
-                <span id="output-title">Terminal</span>
-                <button class="close-btn" onclick="closeOutput()">✕</button>
-            </div>
-            <pre id="output-content">Click an endpoint to see the response...</pre>
+                <span class="desc">Welcome message</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="/profile" class="endpoint">
+                <div class="endpoint-left">
+                    <span class="method">GET</span>
+                    <span class="path">/profile</span>
+                </div>
+                <span class="desc">Profile information</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="/skills" class="endpoint">
+                <div class="endpoint-left">
+                    <span class="method">GET</span>
+                    <span class="path">/skills</span>
+                </div>
+                <span class="desc">Skills list</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="/health" class="endpoint">
+                <div class="endpoint-left">
+                    <span class="method">GET</span>
+                    <span class="path">/health</span>
+                </div>
+                <span class="desc">Health check</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Built with ❤️ using Node.js, Express & Docker
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

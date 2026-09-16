@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health | Manish</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <a href="/" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+
+        <div class="page-card health-card">
+            <div class="health-status">
+                <div class="pulse-dot"></div>
+                <h1>All Systems Operational</h1>
+            </div>
+
+            <div class="health-grid">
+                <div class="health-item">
+                    <i class="fas fa-server"></i>
+                    <div class="health-label">API Status</div>
+                    <div class="health-value success">Healthy</div>
+                </div>
+
+                <div class="health-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="health-label">Uptime</div>
+                    <div class="health-value" id="uptime">Running</div>
+                </div>
+
+                <div class="health-item">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="health-label">Version</div>
+                    <div class="health-value">1.0.0</div>
+                </div>
+
+                <div class="health-item">
+                    <i class="fas fa-docker"></i>
+                    <div class="health-label">Container</div>
+                    <div class="health-value success">Active</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
