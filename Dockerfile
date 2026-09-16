@@ -14,7 +14,7 @@ RUN npm install --production
 COPY app.js .
 
 # Container listens on port 5000 
-EXPOSE 3000
+EXPOSE 5000
 
 # Command which run after Container starting
 CMD ["node", "app.js"]
