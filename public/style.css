@@ -8,30 +8,108 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
-.container {
+/* Main Layout - Side by Side */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    width: 100%;
+    align-items: start;
+}
+
+/* Profile Panel (Left) */
+.profile-panel {
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 50px 40px;
-    max-width: 800px;
-    width: 100%;
+    padding: 40px 30px;
+}
+
+/* Console Panel (Right) */
+.console-panel {
+    background: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 20px;
+}
+
+.console-header {
+    background: #2d2d2d;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.console-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+#output-title {
+    color: #888;
+    font-size: 0.85em;
+    font-family: 'Courier New', monospace;
+}
+
+.console-panel pre {
+    color: #22c55e;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+.close-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75em;
+}
+
+.close-btn:hover {
+    background: #dc2626;
 }
 
 /* Header */
 .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .avatar {
-    font-size: 80px;
-    margin-bottom: 15px;
+    font-size: 70px;
+    margin-bottom: 10px;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -42,48 +120,53 @@ body {
 
 h1 {
     color: #333;
-    font-size: 2em;
-    margin-bottom: 8px;
+    font-size: 1.8em;
+    margin-bottom: 5px;
 }
 
 .subtitle {
     color: #666;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
-/* Badges */
+/* Skills Badges */
 .badges {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 .badge {
-    padding: 8px 16px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: 600;
     color: white;
 }
 
-.badge.docker { background: #2496ED; }
-.badge.node { background: #43853D; }
 .badge.aws { background: #FF9900; }
+.badge.docker { background: #2496ED; }
+.badge.k8s { background: #326CE5; }
+.badge.jenkins { background: #D33833; }
+.badge.cicd { background: #4CAF50; }
+.badge.linux { background: #FCC624; color: #333; }
+.badge.network { background: #9C27B0; }
+.badge.git { background: #24292e; }
 
 /* Endpoints */
 .endpoints {
     display: grid;
-    gap: 12px;
-    margin-top: 30px;
+    gap: 10px;
+    margin-top: 25px;
 }
 
 .endpoint {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 20px;
+    padding: 14px 18px;
     background: #f8f9fa;
     border-radius: 12px;
     text-decoration: none;
@@ -103,17 +186,17 @@ h1 {
 .endpoint-left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .method {
     background: #22c55e;
     color: white;
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 6px;
-    font-size: 0.75em;
+    font-size: 0.7em;
     font-weight: bold;
-    min-width: 50px;
+    min-width: 45px;
     text-align: center;
 }
 
@@ -121,17 +204,17 @@ h1 {
     font-family: 'Courier New', monospace;
     font-weight: 600;
     color: #667eea;
-    font-size: 1.05em;
+    font-size: 0.95em;
 }
 
 .desc {
     color: #888;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 .arrow {
     color: #667eea;
-    font-size: 1.2em;
+    font-size: 1.1em;
     transition: transform 0.2s;
 }
 
@@ -139,64 +222,38 @@ h1 {
     transform: translateX(5px);
 }
 
-/* Output */
-.output {
-    margin-top: 25px;
-    background: #1e1e1e;
-    border-radius: 12px;
-    padding: 20px;
-    display: none;
-}
-
-.output.active {
-    display: block;
-}
-
-.output-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    color: #888;
-    font-size: 0.85em;
-}
-
-.output pre {
-    color: #22c55e;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.close-btn {
-    background: #ef4444;
-    color: white;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8em;
-}
-
-.close-btn:hover {
-    background: #dc2626;
-}
-
 /* Footer */
 .footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 25px;
     color: #999;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
-/* Mobile Responsive */
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .console-panel {
+        position: static;
+        min-height: 300px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
-    .container {
-        padding: 30px 20px;
+    body {
+        padding: 10px;
+    }
+
+    .profile-panel {
+        padding: 25px 18px;
     }
 
     h1 {
@@ -204,16 +261,48 @@ h1 {
     }
 
     .avatar {
-        font-size: 60px;
+        font-size: 55px;
+    }
+
+    .badges {
+        gap: 6px;
+    }
+
+    .badge {
+        padding: 5px 10px;
+        font-size: 0.7em;
     }
 
     .endpoint {
+        padding: 12px 14px;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
 
     .desc {
         width: 100%;
-        margin-left: 65px;
+        margin-left: 57px;
+        font-size: 0.8em;
+    }
+
+    .console-panel {
+        min-height: 250px;
+    }
+
+    .console-panel pre {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 400px) {
+    .badge {
+        font-size: 0.65em;
+        padding: 4px 8px;
+    }
+
+    .path {
+        font-size: 0.85em;
     }
 }

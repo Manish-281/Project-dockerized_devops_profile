@@ -1,13 +1,11 @@
 // Fetch data from endpoint
 async function fetchData(endpoint) {
-    const output = document.getElementById('output');
     const title = document.getElementById('output-title');
     const content = document.getElementById('output-content');
 
     // Show loading
     title.textContent = `GET ${endpoint}`;
     content.textContent = 'Loading...';
-    output.classList.add('active');
 
     try {
         const response = await fetch(endpoint);
@@ -16,8 +14,16 @@ async function fetchData(endpoint) {
             throw new Error(`HTTP ${response.status}`);
         }
 
-        const data = await response.json();
-        content.textContent = JSON.stringify(data, null, 2);
+        // Check content type
+        const contentType = response.headers.get('content-type');
+
+        if (contentType && contentType.includes('application/json')) {
+            const data = await response.json();
+            content.textContent = JSON.stringify(data, null, 2);
+        } else {
+            const text = await response.text();
+            content.textContent = text;
+        }
     } catch (err) {
         content.textContent = `Error: ${err.message}`;
     }
@@ -25,10 +31,14 @@ async function fetchData(endpoint) {
 
 // Close output
 function closeOutput() {
-    document.getElementById('output').classList.remove('active');
+    const title = document.getElementById('output-title');
+    const content = document.getElementById('output-content');
+
+    title.textContent = 'Terminal';
+    content.textContent = 'Click an endpoint to see the response...';
 }
 
-// Close on Escape key
+// Close on Escape
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeOutput();
