@@ -72,7 +72,7 @@ docker compose up -d --build
 
 # 4. Stop
 docker compose down
-```
+
  API Endpoints
 
 Method	Endpoint	Description
