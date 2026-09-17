@@ -50,10 +50,6 @@ dockerized-devops-profile/
 |
 └── README.md
 
-
-```
-
-
 ## 🚦 How to Run Locally
 
 ### Prerequisites
