@@ -114,6 +114,7 @@ docker compose down
 docker ps
 docker logs profile-api
 docker exec -it profile-api sh
+```
 
 ☁️ AWS Setup
 
