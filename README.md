@@ -33,18 +33,18 @@ A full-stack DevOps profile API built with Node.js, Express, and Docker — depl
 dockerized-devops-profile/
 │
 ├── public/
-│   ├── index.html          # Main page
-│   ├── welcome.html        # Welcome page
-│   ├── profile.html        # Profile page
-│   ├── skills.html         # Skills page
-│   ├── health.html         # Health page
-│   ├── style.css           # Styles
-│   └── script.js           # Frontend logic
+│   ├── index.html         
+│   ├── welcome.html      
+│   ├── profile.html      
+│   ├── skills.html         
+│   ├── health.html         
+│   ├── style.css           
+│   └── script.js           
 │
-├── app.js                  # Express server
-├── package.json            # Dependencies
-├── Dockerfile              # Docker instructions
-├── docker-compose.yml      # Compose config
+├── app.js                 
+├── package.json           
+├── Dockerfile             
+├── docker-compose.yml      
 ├── .dockerignore
 ├── .gitignore
 └── README.md
