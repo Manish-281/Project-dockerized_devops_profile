@@ -72,7 +72,7 @@ docker compose up -d --build
 
 # 4. Stop
 docker compose down
-
+```
  API Endpoints
 
 Method	Endpoint	Description
@@ -117,7 +117,34 @@ docker exec -it profile-api sh
 
 ☁️ AWS Setup
 
-EC2 Instance: Ubuntu 22.04, t2.micro
+EC2 Instance: Ubuntu 22.04, t2.small
 Elastic IP: Static IP attached
 Security Group:     SSH (22) — My IP
                     HTTP (5000) — Anywhere
+
+📝 What I Learned
+
+Building REST APIs with Express
+
+Dockerizing Node.js apps
+
+Docker Compose for orchestration
+
+Deploying on AWS EC2
+
+Configuring Security Groups
+
+Elastic IP setup (static IP)
+
+SSH and Linux server management
+
+Professional UI with HTML/CSS/JS
+
+Author :
+
+Manish
+
+GitHub: @Manish-281
+
+Live Demo:http: http://43.205.164.180:5000
+                    
