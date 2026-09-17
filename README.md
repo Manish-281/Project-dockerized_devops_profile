@@ -31,21 +31,24 @@ A full-stack DevOps profile API built with Node.js, Express, and Docker — depl
 ## 📁 Project Structure
 
 dockerized-devops-profile/
+│
 ├── public/
-│ ├── index.html # Main page
-│ ├── welcome.html # Welcome page
-│ ├── profile.html # Profile page
-│ ├── skills.html # Skills page
-│ ├── health.html # Health page
-│ ├── style.css # Styles
-│ └── script.js # Frontend logic
-├── app.js # Express server
-├── package.json # Dependencies
-├── Dockerfile # Docker instructions
-├── docker-compose.yml # Compose config
+│   ├── index.html          # Main page
+│   ├── welcome.html        # Welcome page
+│   ├── profile.html        # Profile page
+│   ├── skills.html         # Skills page
+│   ├── health.html         # Health page
+│   ├── style.css           # Styles
+│   └── script.js           # Frontend logic
+│
+├── app.js                  # Express server
+├── package.json            # Dependencies
+├── Dockerfile              # Docker instructions
+├── docker-compose.yml      # Compose config
 ├── .dockerignore
 ├── .gitignore
 └── README.md
+```
 
 
 ## 🚦 How to Run Locally
@@ -119,29 +122,3 @@ EC2 Instance: Ubuntu 22.04, t2.micro
 Elastic IP: Static IP attached
 Security Group:     SSH (22) — My IP
                     HTTP (5000) — Anywhere
-
-📝 What I Learned
-
-Building REST APIs with Express
-
-Dockerizing Node.js apps
-
-Docker Compose for orchestration
-
-Deploying on AWS EC2
-
-Configuring Security Groups
-
-Elastic IP setup (static IP)
-
-SSH and Linux server management
-
-Professional UI with HTML/CSS/JS
-
-Author :
-
-Manish
-
-GitHub: @Manish-281
-
-Live Demo:http: http://43.205.164.180:5000
