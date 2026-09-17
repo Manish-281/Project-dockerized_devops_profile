@@ -47,6 +47,7 @@ dockerized-devops-profile/
 ├── docker-compose.yml      
 ├── .dockerignore
 ├── .gitignore
+|
 └── README.md
 ```
 
