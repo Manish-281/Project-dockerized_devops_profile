@@ -119,9 +119,14 @@ docker exec -it profile-api sh
 ☁️ AWS Setup
 
 EC2 Instance: Ubuntu 22.04, t2.small
+
 Elastic IP: Static IP attached
-Security Group:     SSH (22) — My IP
-                    HTTP (5000) — Anywhere
+
+Security Group:     
+
+SSH (22) — My IP
+HTTP (5000) — Anywhere
+
 
 📝 What I Learned
 
